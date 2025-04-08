@@ -5,15 +5,13 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Cacheable
 public class Laptop {
     @Id
     private int aid;
     private String brand;
     private String model;
     private int ram;
-
-    @ManyToMany(mappedBy = "laptops")
-    private List<Alien> aliens;
 
     public int getAid() {
         return aid;
@@ -47,14 +45,6 @@ public class Laptop {
         this.ram = ram;
     }
 
-    public List<Alien> getAliens() {
-        return aliens;
-    }
-
-    public void setAliens(List<Alien> aliens) {
-        this.aliens = aliens;
-    }
-
     @Override
     public String toString() {
         return "Laptop{" +
@@ -62,7 +52,6 @@ public class Laptop {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
-                ", alien=" + aliens +
                 '}';
     }
 }

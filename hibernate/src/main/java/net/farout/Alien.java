@@ -1,6 +1,7 @@
 package net.farout;
 
 import jakarta.persistence.*;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class Alien {
     private String aName;
     private String tech;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Laptop> laptops;
 
     public int getAid() {
@@ -41,6 +42,7 @@ public class Alien {
     public List<Laptop> getLaptop() {
         return laptops;
     }
+
 
     public void setLaptop(List<Laptop> laptop) {
         this.laptops = laptop;
