@@ -1,7 +1,8 @@
 package net.farout;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Alien {
@@ -9,7 +10,9 @@ public class Alien {
     private int aid;
     private String aName;
     private String tech;
-    private Laptop laptop;
+
+    @ManyToMany
+    private List<Laptop> laptops;
 
     public int getAid() {
         return aid;
@@ -35,12 +38,12 @@ public class Alien {
         this.tech = tech;
     }
 
-    public Laptop getLaptop() {
-        return laptop;
+    public List<Laptop> getLaptop() {
+        return laptops;
     }
 
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
+    public void setLaptop(List<Laptop> laptop) {
+        this.laptops = laptop;
     }
 
     @Override
@@ -49,7 +52,7 @@ public class Alien {
                 "aid=" + aid +
                 ", aName='" + aName + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptop +
+                ", laptop=" + laptops +
                 '}';
     }
 }
