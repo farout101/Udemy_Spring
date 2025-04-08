@@ -7,24 +7,32 @@ import org.hibernate.cfg.Configuration;
 
 public class Main {
     public static void main(String[] args) {
-        Student s1 = new Student();
-        s1.setsName("new");
-        s1.setRollNo(1);
-        s1.setsAge(19);
 
-        Configuration cfg = new Configuration();
-        cfg.addAnnotatedClass(net.farout.Student.class);
-        cfg.configure();
+        Laptop l1 = new Laptop();
+        l1.setRam(3);
+        l1.setBrand("Potato");
+        l1.setModel("Oldest");
 
-        SessionFactory sf = cfg.buildSessionFactory();
+        Alien a1 = new Alien();
+        a1.setAid(1);
+        a1.setaName("New Guy");
+        a1.setTech("CS");
+        a1.setLaptop(l1);
+
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(net.farout.Alien.class)
+                .configure()
+                .buildSessionFactory(); // cfg.buildSessionFactory();
         Session session = sf.openSession();
 
         Transaction transaction = session.beginTransaction();
 
-        session.save(s1);
+        session.persist(a1);
 
         transaction.commit();
 
-        System.out.println(session.get(net.farout.Student.class, s1.getRollNo()));
+        session.close();
+        sf.close();
+
     }
 }
