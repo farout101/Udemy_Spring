@@ -6,10 +6,10 @@
 <!-- bean definitions here -->
     <bean id="alien" class="net.farout.Alien">
         <property name="age" value="25"/>
-        <property name="laptop" ref="Lap"/>
+        <property name="laptop" ref="lap"/>
     </bean>
 
-    <bean id="Lap" class="net.farout.Laptop">
+    <bean id="lap" class="net.farout.Laptop">
     </bean>
 
 </beans>
