@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- bean definitions here -->
+    <bean id="alien" class="net.farout.Alien">
+        <property name="age" value="25"/>
+        <property name="laptop" ref="Lap"/>
+    </bean>
+
+    <bean id="Lap" class="net.farout.Laptop">
+    </bean>
+
+</beans>
