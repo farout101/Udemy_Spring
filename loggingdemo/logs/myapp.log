@@ -1,0 +1,16 @@
+[INFO ] 2025-04-09 15:30:21 [main] LoggingdemoApplication - Starting LoggingdemoApplication using Java 21.0.6 with PID 10568 (C:\Users\phyoz\OneDrive\Desktop\farout101\Telusko\loggingdemo\target\classes started by phyoz in C:\Users\phyoz\OneDrive\Desktop\farout101\Telusko\loggingdemo)
+[DEBUG] 2025-04-09 15:30:21 [main] LoggingdemoApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
+[INFO ] 2025-04-09 15:30:21 [main] LoggingdemoApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2025-04-09 15:30:22 [main] TomcatWebServer - Tomcat initialized with port 8080 (http)
+[INFO ] 2025-04-09 15:30:22 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 899 ms
+[INFO ] 2025-04-09 15:30:23 [main] TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+[INFO ] 2025-04-09 15:30:23 [main] LoggingdemoApplication - Started LoggingdemoApplication in 1.877 seconds (process running for 2.759)
+[INFO ] 2025-04-09 15:31:08 [SpringApplicationShutdownHook] GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[INFO ] 2025-04-09 15:31:08 [tomcat-shutdown] GracefulShutdown - Graceful shutdown complete
+[INFO ] 2025-04-09 15:31:10 [main] LoggingdemoApplication - Starting LoggingdemoApplication using Java 21.0.6 with PID 23656 (C:\Users\phyoz\OneDrive\Desktop\farout101\Telusko\loggingdemo\target\classes started by phyoz in C:\Users\phyoz\OneDrive\Desktop\farout101\Telusko\loggingdemo)
+[DEBUG] 2025-04-09 15:31:10 [main] LoggingdemoApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
+[INFO ] 2025-04-09 15:31:10 [main] LoggingdemoApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2025-04-09 15:31:11 [main] TomcatWebServer - Tomcat initialized with port 8080 (http)
+[INFO ] 2025-04-09 15:31:11 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 921 ms
+[INFO ] 2025-04-09 15:31:11 [main] TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+[INFO ] 2025-04-09 15:31:11 [main] LoggingdemoApplication - Started LoggingdemoApplication in 1.749 seconds (process running for 2.592)
