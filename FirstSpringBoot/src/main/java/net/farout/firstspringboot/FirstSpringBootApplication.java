@@ -1,12 +1,13 @@
 package net.farout.firstspringboot;
 
-import net.farout.firstspringboot.model.Student;
-import net.farout.firstspringboot.service.StudentService;
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import java.util.List;
+import net.farout.firstspringboot.model.Student;
+import net.farout.firstspringboot.service.StudentService;
 
 @SpringBootApplication
 public class FirstSpringBootApplication {
