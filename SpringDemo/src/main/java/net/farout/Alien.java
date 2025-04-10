@@ -1,9 +1,21 @@
 package net.farout;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alien {
 
     int age;
-    Laptop laptop;
+
+    @Autowired
+    @Qualifier("desktop")
+    private Computer com;
+
+    public Alien(int age) {
+        System.out.println("Alien constructor with age: ");
+    }
 
     public int getAge() {
         return age;
@@ -11,10 +23,6 @@ public class Alien {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
     }
 
     public Alien () {
@@ -25,7 +33,11 @@ public class Alien {
         System.out.println("Alien code");
     }
 
-    public Laptop getLaptop() {
-        return laptop;
+    public Computer getCom() {
+        return com;
+    }
+
+    public void setCom(Computer com) {
+        this.com = com;
     }
 }
