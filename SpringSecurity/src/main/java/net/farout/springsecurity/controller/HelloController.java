@@ -1,4 +1,4 @@
-package net.farout.springsecurity;
+package net.farout.springsecurity.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;

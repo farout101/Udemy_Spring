@@ -1,6 +1,7 @@
-package net.farout.springsecurity;
+package net.farout.springsecurity.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import net.farout.springsecurity.model.Student;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

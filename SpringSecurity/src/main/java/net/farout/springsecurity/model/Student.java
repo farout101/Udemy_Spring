@@ -1,4 +1,4 @@
-package net.farout.springsecurity;
+package net.farout.springsecurity.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
