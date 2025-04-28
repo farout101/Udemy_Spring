@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>net.farout</groupId>
-    <artifactId>simplewebapp</artifactId>
+    <artifactId>threads</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>simplewebapp</name>
-    <description>simplewebapp</description>
+    <name>threads</name>
+    <description>threads</description>
     <url/>
     <licenses>
         <license/>
@@ -43,7 +43,6 @@
     </dependencies>
 
     <build>
-        <finalName>samplewebapp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
