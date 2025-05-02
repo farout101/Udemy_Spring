@@ -4,6 +4,8 @@ import net.farout.questionservice.dao.QuestionDao;
 import net.farout.questionservice.model.Question;
 import net.farout.questionservice.model.QuestionWrapper;
 import net.farout.questionservice.model.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,9 @@ import java.util.List;
 
 @Service
 public class QuestionService {
+
+    private static final Logger logger = LoggerFactory.getLogger(QuestionService.class);
+
     @Autowired
     QuestionDao questionDao;
 
@@ -75,7 +80,10 @@ public class QuestionService {
             Question question = questionDao.findById(response.getId()).get();
             if(response.getResponse().equals(question.getRightAnswer()))
                 right++;
+            logger.info("Response: {}", response.getResponse());
+            logger.info("RightAnswer: {}", question.getRightAnswer());
         }
+        logger.info("RightAnswer: {}", right);
 
         return new ResponseEntity<>(right, HttpStatus.OK);
     }

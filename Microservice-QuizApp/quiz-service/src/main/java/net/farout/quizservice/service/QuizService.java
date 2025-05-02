@@ -1,6 +1,7 @@
 package net.farout.quizservice.service;
 
 import net.farout.quizservice.dao.QuizDao;
+import net.farout.quizservice.feign.QuizInterface;
 import net.farout.quizservice.model.QuestionWrapper;
 import net.farout.quizservice.model.Quiz;
 import net.farout.quizservice.model.Response;
@@ -19,43 +20,37 @@ public class QuizService {
     @Autowired
     QuizDao quizDao;
 
+    @Autowired
+    QuizInterface quizInterface;
+
     public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
 
-        List<Integer> questions = // generate URL
-//
-//        Quiz quiz = new Quiz();
-//        quiz.setTitle(title);
-//        quiz.setQuestions(questions);
-//        quizDao.save(quiz);
+        List<Integer> questions = quizInterface.getQuestionsForQuiz(category,numQ).getBody();
+
+        Quiz quiz = new Quiz();
+        quiz.setTitle(title);
+        quiz.setQuestionIds(questions);
+        quizDao.save(quiz);
 
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
 
     }
 
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id) {
-//        Optional<Quiz> quiz = quizDao.findById(id);
-//        List<Question> questionsFromDB = quiz.get().getQuestions();
-        List<QuestionWrapper> questionsForUser = new ArrayList<>();
+        Quiz quiz = quizDao.findById(id).get();
+        List<Integer> questionIds = quiz.getQuestionIds();
+        ResponseEntity<List<QuestionWrapper>> questions = quizInterface.getQuestionsFromId(questionIds);
 //        for(Question q : questionsFromDB){
 //            QuestionWrapper qw = new QuestionWrapper(q.getId(), q.getQuestionTitle(), q.getOption1(), q.getOption2(), q.getOption3(), q.getOption4());
 //            questionsForUser.add(qw);
 //        }
 
-        return new ResponseEntity<>(questionsForUser, HttpStatus.OK);
+       return questions;
 
     }
 
     public ResponseEntity<Integer> calculateResult(Integer id, List<Response> responses) {
-        Quiz quiz = quizDao.findById(id).get();
-//        List<Question> questions = quiz.getQuestions();
-        int right = 0;
-//        int i = 0;
-//        for(Response response : responses){
-//            if(response.getResponse().equals(questions.get(i).getRightAnswer()))
-//                right++;
-//
-//            i++;
-//        }
-        return new ResponseEntity<>(right, HttpStatus.OK);
+        ResponseEntity<Integer> score = quizInterface.getScore(responses);
+        return score;
     }
 }
