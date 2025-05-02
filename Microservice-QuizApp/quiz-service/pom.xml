@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>net.farout</groupId>
-    <artifactId>question-service</artifactId>
+    <artifactId>quiz-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>question-service</name>
-    <description>question-service</description>
+    <name>quiz-service</name>
+    <description>quiz-service</description>
     <url/>
     <licenses>
         <license/>
