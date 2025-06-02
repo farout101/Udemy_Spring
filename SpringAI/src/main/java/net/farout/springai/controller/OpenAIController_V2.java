@@ -1,40 +1,42 @@
 package net.farout.springai.controller;
 
-import lombok.extern.java.Log;
-import org.apache.coyote.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.memory.InMemoryChatMemoryRepository;
 import org.springframework.ai.chat.model.ChatResponse;
-import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/openai")
-public class OpenAIController {
+public class OpenAIController_V2 {
 
-    Logger logger = LoggerFactory.getLogger(OpenAIController.class);
 
-    private final ChatClient client;
+    private ChatClient chatClient;
 
-    public OpenAIController(OpenAiChatModel model) {
-        this.client = ChatClient.create(model);
-    }
+//    public OpenAIController(OpenAiChatModel chatModel) {
+//        this.chatClient = ChatClient.create(chatModel);
+//    }
 
-    @GetMapping("/{message}")
+
+//    public OpenAIController_V2(ChatClient.Builder builder) {
+//        this.chatClient = builder.defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemoryRepository()))
+//                .build();
+//
+//    }
+
+    @GetMapping("/api/{message}")
     public ResponseEntity<String> getAnswer(@PathVariable String message) {
 
-        ChatResponse chatResponse = client
+        ChatResponse chatResponse = chatClient
                 .prompt(message)
                 .call()
                 .chatResponse();
 
-        assert chatResponse != null : "Chat response is null";
-        logger.info("Model used: {}", chatResponse.getMetadata().getModel());
+
+        System.out.println(chatResponse.getMetadata().getModel());
+
 
         String response = chatResponse
                 .getResult()
